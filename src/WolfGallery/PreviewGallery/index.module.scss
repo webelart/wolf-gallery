@@ -52,3 +52,9 @@
         font: 24px/1 Georgia;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .previewGallery {
+        display: none;
+    }
+}

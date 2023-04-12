@@ -40,15 +40,21 @@ const showPhoto = (element: HTMLElement | null) => {
     }
 
     element.dataset.active = 'true';
+    // @ts-ignore
+    element.src = element.dataset.src;
 
     if (element.previousSibling) {
         // @ts-ignore
         element.previousSibling.dataset.active = 'prepared';
+        // @ts-ignore
+        element.previousSibling.src = element.previousSibling.dataset.src;
     }
 
     if (element.nextSibling) {
         // @ts-ignore
         element.nextSibling.dataset.active = 'prepared';
+        // @ts-ignore
+        element.nextSibling.src = element.nextSibling.dataset.src;
     }
 }
 
@@ -88,9 +94,8 @@ export const TransitionPhoto: React.FC<TransitionPhotoProps> = ({
                     className={style.transitionPhotoImage}
                     key={photo.id}
                     data-active={id === indexActivePhoto}
-                    src={photo.src}
+                    data-src={photo.src}
                     alt={photo.description}
-                    loading="lazy"
                 />
             ))}
         </div>
